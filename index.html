@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spend Well</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Good Morning, Coffy</h1>
+      <div class="header-controls">
+        <div class="dropdown">Daily <i class="fas fa-chevoron-down"></i></div>
+        <div class="date-picker">
+          <i class="fas fa-calendar"></i>
+          30th September 2026
+        </div>
+
+        <div class="export-btn">
+          <i class="fas fa-download"></i>
+          Export
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Monthly Income</h3>
+            <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <div class="amount income-amount">$8000.00</div>
+          <div class="change">
+            <i class="fas fa-arrow-up"></i>
+            12% vs Last month
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Monthly Expenses</h3>
+            <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <div class="amount income-amount">$5446.00</div>
+          <div class="change">
+            <i class="fas fa-arrow-up"></i>
+            12% vs Last month
+          </div>
+        </div>
+
+        <div class="card my-card">
+          <div class="card-header">
+            <h3 class="card-title">My Card</h3>
+            <button class="card-menu" style="color: white">
+              <i class="fas fa-ellipsis-h"></i>
+            </button>
+          </div>
+          <div style="font-size: 0.7rem; opacity: 0.8; margin-bottom: 1rem">
+            linked to your praimary wallet
+          </div>
+
+          <div class="card-chip"></div>
+          <div class="card-number">1111 3333 5555 6666</div>
+          <div class="card-holder">Cofffy Amen</div>
+
+          <div class="card-logo">
+            <div class="card-logo-circle logo-red"></div>
+            <div class="card-logo-circle logo-blue"></div>
+          </div>
+
+          <div class="spending-section">
+            <div style="margin-bottom: 0.5rem; font-size: 0.875; opacity: 0.9">
+              Spending Limit
+            </div>
+            <div class="spending-limit">$5,600.00</div>
+            <div class="spending-used">used from $15,000.00</div>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-section">
+        <div class="card overview-card">
+          <div class="card-header">
+            <h3 class="card-title">Expense Overview</h3>
+            <div class="chart-legend">
+              <span><i class="fas fa-circle" style="color: #e9580a"></i> Spend</span>
+              <span><i class="fas fa-circle" style="color: #d1d5db"></i> Budget</span>
+            </div>
+          </div>
+          <div class="overview-bars" aria-label="Monthly spending overview">
+            <div class="bar-item">
+              <span class="bar-label">Housing</span>
+              <div class="bar-track"><div class="bar-fill fill-1"></div></div>
+            </div>
+            <div class="bar-item">
+              <span class="bar-label">Food</span>
+              <div class="bar-track"><div class="bar-fill fill-2"></div></div>
+            </div>
+            <div class="bar-item">
+              <span class="bar-label">Travel</span>
+              <div class="bar-track"><div class="bar-fill fill-3"></div></div>
+            </div>
+            <div class="bar-item">
+              <span class="bar-label">Utilities</span>
+              <div class="bar-track"><div class="bar-fill fill-4"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card tracker-panel">
+          <div class="card-header">
+            <h3 class="card-title">Add Expense</h3>
+          </div>
+
+          <form id="expense-form" class="expense-form">
+            <div class="field">
+              <label for="expense-name">Name</label>
+              <input id="expense-name" name="name" type="text" placeholder="Groceries" required />
+            </div>
+
+            <div class="field">
+              <label for="expense-category">Category</label>
+              <select id="expense-category" name="category">
+                <option value="Housing">Housing</option>
+                <option value="Food">Food</option>
+                <option value="Travel">Travel</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Health">Health</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="expense-amount">Amount</label>
+              <input id="expense-amount" name="amount" type="number" min="0" step="0.01" placeholder="0.00" required />
+            </div>
+
+            <div class="field">
+              <label for="expense-date">Date</label>
+              <input id="expense-date" name="date" type="date" required />
+            </div>
+
+            <button type="submit" class="primary-btn">Add expense</button>
+          </form>
+        </div>
+
+        <div class="card transaction-panel">
+          <div class="card-header">
+            <h3 class="card-title">Recent Transactions</h3>
+            <select id="category-filter" class="mini-select">
+              <option value="all">All</option>
+              <option value="Housing">Housing</option>
+              <option value="Food">Food</option>
+              <option value="Travel">Travel</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Health">Health</option>
+            </select>
+          </div>
+
+          <ul id="transaction-list" class="transaction-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
